@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valinor Library | Painel do Guardião</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">✦</span>
+      <span class="logo-text">Valinor <span>Library</span></span>
+    </div>
+    <nav class="nav">
+      <button class="nav-link active" data-target="tela-inicio">Início</button>
+      <button class="nav-link" data-target="tela-livros">Grimório (Livros)</button>
+      <button class="nav-link" data-target="tela-usuarios">Aventureiros (Users)</button>
+      <button class="nav-link" data-target="tela-emprestimos">Missões (Empréstimos)</button>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section id="tela-inicio" class="tela fade-in">
+      <div class="hero">
+        <h1>Painel do Guardião da Biblioteca</h1>
+        <p>Bem-vindo ao sistema de gerenciamento da Valinor Library. O que deseja fazer hoje?</p>
+        <div class="actions">
+          <button class="btn-primary"
+            onclick="document.querySelector('[data-target=\'tela-cadastro-livro\']').click()">+ Novo Livro</button>
+          <button class="btn-primary"
+            onclick="document.querySelector('[data-target=\'tela-cadastro-usuario\']').click()">+ Novo Usuário</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="tela-livros" class="tela hidden">
+      <div class="header-section">
+        <h2>Acervo do Grimório</h2>
+        <button class="btn-primary" data-target="tela-cadastro-livro">+ Adicionar Obra</button>
+      </div>
+      <div id="lista-livros" class="grid-livros">
+      </div>
+    </section>
+
+    <section id="tela-usuarios" class="tela hidden">
+      <div class="header-section">
+        <h2>Guilda de Aventureiros</h2>
+        <button class="btn-primary" data-target="tela-cadastro-usuario">+ Registrar Membro</button>
+      </div>
+      <div id="lista-usuarios" class="grid-usuarios">
+      </div>
+    </section>
+
+    <section id="tela-emprestimos" class="tela hidden">
+      <div class="header-section">
+        <h2>Registro de Missões</h2>
+        <button class="btn-primary" data-target="tela-novo-emprestimo">+ Novo Empréstimo</button>
+      </div>
+      <div class="card tabela-container">
+        <table class="tabela-valinor">
+          <thead>
+            <tr>
+              <th>Obra</th>
+              <th>Aventureiro</th>
+              <th>Data</th>
+              <th>Status</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-corpo-emprestimos">
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="tela-cadastro-livro" class="tela hidden">
+      <h2>Inscrever Nova Obra no Grimório</h2>
+      <form id="form-livro" class="form-valinor">
+        <input type="text" id="titulo" placeholder="Título da Obra" required>
+        <input type="text" id="autor" placeholder="Autor(a)" required>
+        <input type="text" id="genero" placeholder="Gênero (Fantasia, Sci-Fi...)">
+        <input type="text" id="imagem" placeholder="URL da Capa (Opcional)">
+        <input type="number" id="preco" placeholder="Valor (Moedas de Ouro)" step="0.01">
+        <button type="submit" class="btn-primary">Salvar no Acervo</button>
+      </form>
+    </section>
+
+    <section id="tela-cadastro-usuario" class="tela hidden">
+      <h2>Registrar Novo Aventureiro</h2>
+      <form id="form-usuario" class="form-valinor">
+        <input type="text" id="nome" placeholder="Nome do Aventureiro" required>
+        <input type="email" id="email" placeholder="Pergaminho de Contato (E-mail)" required>
+        <button type="submit" class="btn-primary">Registrar na Guilda</button>
+      </form>
+    </section>
+
+    <section id="tela-novo-emprestimo" class="tela hidden">
+      <h2>Iniciar Nova Missão (Empréstimo)</h2>
+      <form id="form-emprestimo" class="form-valinor">
+        <label>Quem partirá na missão?</label>
+        <select id="select-usuario" required></select>
+
+        <label>Qual conhecimento levará?</label>
+        <select id="select-livro" required></select>
+
+        <button type="submit" class="btn-primary">Confirmar Empréstimo</button>
+      </form>
+    </section>
+
+  </main>
+
+  <script src="app/api.js"></script>
+  <script src="app/main.js"></script>
+  <script src="app/metodoCadastrarLivro.js"></script>
+  <script src="app/metodoCadastrarUsuario.js"></script>
+  <script src="app/metodoRegistrarEmprestimo.js"></script>
+</body>
+
+</html>

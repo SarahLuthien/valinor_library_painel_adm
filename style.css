@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;600&display=swap");
+
+:root {
+  --cor-bg: #0b1020;
+  --cor-primaria: #4c2a85;
+  --cor-secundaria: #f5c469;
+  --cor-acento: #3498db;
+  --cor-card: #f4eee0;
+  --cor-texto-claro: #fdfdfd;
+  --cor-texto-escuro: #2d2d2d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--cor-bg);
+  color: var(--cor-texto-claro);
+  padding-bottom: 50px;
+}
+
+h1,
+h2,
+h3,
+.logo {
+  font-family: "Cinzel", serif;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: rgba(11, 16, 32, 0.95);
+  border-bottom: 2px solid var(--cor-primaria);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  color: var(--cor-secundaria);
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo span span {
+  color: var(--cor-texto-claro);
+  font-size: 0.8em;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+.nav-link {
+  background: none;
+  border: none;
+  color: var(--cor-texto-claro);
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: 0.3s;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--cor-secundaria);
+  border-bottom: 1px solid var(--cor-secundaria);
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.hidden {
+  display: none !important;
+}
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* HERO SECTION */
+.hero {
+  text-align: center;
+  margin-top: 50px;
+}
+.hero h1 {
+  font-size: 3rem;
+  color: var(--cor-secundaria);
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #c5c6d0;
+}
+
+/* COMPONENTES UI */
+.btn-primary {
+  background-color: var(--cor-primaria);
+  color: #fff;
+  border: 1px solid transparent;
+  padding: 0.8rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  transition: 0.3s;
+}
+.btn-primary:hover {
+  background-color: #5f3ca0;
+  border-color: var(--cor-secundaria);
+  box-shadow: 0 0 10px rgba(245, 196, 105, 0.3);
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--cor-primaria);
+  padding-bottom: 15px;
+}
+.header-section h2 {
+  color: var(--cor-secundaria);
+}
+
+/* CARDS E GRIDS */
+.grid-livros,
+.grid-usuarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card-livro,
+.card-usuario {
+  background-color: var(--cor-card);
+  color: var(--cor-texto-escuro);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s;
+  border: 2px solid transparent;
+}
+.card-livro:hover {
+  transform: translateY(-5px);
+  border-color: var(--cor-secundaria);
+}
+.livro-titulo {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--cor-primaria);
+}
+.livro-capa {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* BADGES */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.badge-disponivel {
+  background-color: #27ae60;
+  color: #fff;
+}
+.badge-emprestado {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+/* FORMS */
+.form-valinor {
+  background-color: var(--cor-card);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.form-valinor input,
+.form-valinor select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: "Inter", sans-serif;
+}
+
+/* TABELA */
+.tabela-container {
+  background-color: var(--cor-card);
+  border-radius: 12px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.tabela-valinor {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--cor-texto-escuro);
+}
+.tabela-valinor th {
+  text-align: left;
+  padding: 15px;
+  color: var(--cor-primaria);
+  font-family: "Cinzel", serif;
+  border-bottom: 2px solid var(--cor-secundaria);
+}
+.tabela-valinor td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
