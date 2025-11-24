@@ -76,11 +76,10 @@ h3,
   border-bottom: 1px solid var(--cor-secundaria);
 }
 
-/* CONTAINER */
+/* Container */
 .container {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
+  margin: 60px auto;
+  padding: 0 30px;
 }
 .hidden {
   display: none !important;
@@ -98,7 +97,7 @@ h3,
   }
 }
 
-/* HERO SECTION */
+/* Hero */
 .hero {
   text-align: center;
   margin-top: 50px;
@@ -109,15 +108,24 @@ h3,
   margin-bottom: 20px;
 }
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-bottom: 40px;
   color: #c5c6d0;
 }
 
-/* COMPONENTES UI */
+/* Componentes Ui */
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
 .btn-primary {
   background-color: var(--cor-primaria);
   color: #fff;
+  font-size: 1.2rem;
+  min-width: 200px;
   border: 1px solid transparent;
   padding: 0.8rem 1.8rem;
   border-radius: 999px;
@@ -126,6 +134,7 @@ h3,
   font-family: "Inter", sans-serif;
   transition: 0.3s;
 }
+
 .btn-primary:hover {
   background-color: #5f3ca0;
   border-color: var(--cor-secundaria);
@@ -140,38 +149,50 @@ h3,
   border-bottom: 1px solid var(--cor-primaria);
   padding-bottom: 15px;
 }
+
 .header-section h2 {
+  font-size: 1.6rem;
   color: var(--cor-secundaria);
 }
 
-/* CARDS E GRIDS */
-.grid-livros,
-.grid-usuarios {
+/* Card/Grids Livros */
+.grid-livros {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
 }
 
-.card-livro,
-.card-usuario {
+.card-livro {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
   background-color: var(--cor-card);
   color: var(--cor-texto-escuro);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1.1rem;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s;
   border: 2px solid transparent;
 }
+
 .card-livro:hover {
   transform: translateY(-5px);
   border-color: var(--cor-secundaria);
 }
+
+.card-info {
+  margin-bottom: auto;
+  padding-bottom: 20px;
+}
+
 .livro-titulo {
   font-family: "Cinzel", serif;
   font-weight: 700;
   margin-bottom: 10px;
   color: var(--cor-primaria);
 }
+
 .livro-capa {
   width: 100%;
   height: 200px;
@@ -180,7 +201,7 @@ h3,
   margin-bottom: 15px;
 }
 
-/* BADGES */
+/* Badges */
 .badge {
   display: inline-block;
   padding: 0.2rem 0.7rem;
@@ -189,26 +210,77 @@ h3,
   font-weight: 600;
   margin-top: 10px;
 }
+
 .badge-disponivel {
   background-color: #27ae60;
   color: #fff;
 }
+
 .badge-emprestado {
   background-color: #e74c3c;
   color: #fff;
 }
 
-/* FORMS */
+/* Butons Card */
+.btn-icon {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #444;
+  transition: 0.2s;
+}
+
+.btn-icon:hover {
+  color: #000;
+  transform: scale(1.1);
+}
+
+.btn-perigo {
+  color: #b00020;
+}
+
+.btn-perigo:hover {
+  color: #ff0033;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+
+/* Forms */
+
+h2 {
+  color: var(--cor-secundaria);
+  text-align: center;
+  font-size: 1.4rem;
+  padding-bottom: 50px;
+}
+
 .form-valinor {
   background-color: var(--cor-card);
   padding: 2rem;
   border-radius: 12px;
-  max-width: 500px;
+  max-width: 800px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  justify-content: center;
 }
+
 .form-valinor input,
 .form-valinor select {
   padding: 12px;
@@ -217,26 +289,124 @@ h3,
   font-family: "Inter", sans-serif;
 }
 
-/* TABELA */
+.form-grid {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.campo-grupo label {
+  font-size: 1rem;
+  color: var(--cor-texto-escuro);
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+}
+
+custom-cursor-default-hover .campo-grupo input {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.2s;
+}
+
+.btn-icon:hover {
+  transform: scale(1.2);
+}
+
+.btn-perigo:hover {
+  filter: grayscale(100%) sepia(100%) hue-rotate(-50deg) saturate(500%);
+}
+
+.btn-container-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
+  padding-bottom: 10px;
+}
+
+/* Tabela Usuários */
 .tabela-container {
+  width: 100%;
+  max-width: 120rem;
+  margin: 50px auto;
   background-color: var(--cor-card);
   border-radius: 12px;
-  padding: 1rem;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
 }
+
 .tabela-valinor {
   width: 100%;
   border-collapse: collapse;
   color: var(--cor-texto-escuro);
+  min-width: 800px;
 }
+
 .tabela-valinor th {
-  text-align: left;
-  padding: 15px;
+  text-align: center;
+  padding: 15px 20px;
+  background-color: rgba(76, 42, 133, 0.05);
   color: var(--cor-primaria);
   font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   border-bottom: 2px solid var(--cor-secundaria);
 }
+
 .tabela-valinor td {
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
+  text-align: center;
+  padding: 14px 0px;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  vertical-align: middle;
+}
+
+.tabela-valinor tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.tabela-valinor tbody tr:hover {
+  background-color: rgba(245, 196, 105, 0.15);
+  transition: background-color 0.2s ease;
+}
+
+.tabela-valinor td:last-child {
+  text-align: center;
+  width: 100px;
+}
+
+.tabela-valinor td:nth-child(3),
+.tabela-valinor td:nth-child(4) {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
 }

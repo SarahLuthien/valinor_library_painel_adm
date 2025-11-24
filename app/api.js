@@ -1,3 +1,4 @@
+
 const BIN_ID = '69234644ae596e708f6c136b';
 const API_KEY = '$2a$10$beIBRKyUsrWdI8pn3KCORenaAVvipvSnDbgO3RFLj5tgDOKlX5PLK';
 
@@ -21,7 +22,6 @@ async function buscarDadosDaAPI() {
     return dados.record;
 
   } catch (erro) {
-    console.error(erro); // testando.. lembrar de apagar!!
     alert("Erro ao conectar com o banco de dados!");
     return { usuarios: [], livros: [], emprestimos: [] };
   }
@@ -40,9 +40,7 @@ async function salvarDadosNaAPI(dadosAtualizados) {
     });
 
     if (!resposta.ok) throw new Error('Erro ao salvar dados');
-    console.log("Dados salvos com sucesso!"); // testando.. lembrar de apagar!!
   } catch (erro) {
-    console.error(erro);
     alert("Erro ao salvar as alterações.");
   }
 }

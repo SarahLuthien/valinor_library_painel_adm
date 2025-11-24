@@ -11,10 +11,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body>
 
+  <!-- Nav -->
   <header class="header">
     <div class="logo">
       <span class="logo-icon">✦</span>
@@ -30,6 +32,8 @@
 
   <main class="container">
 
+    <!-- Home -->
+
     <section id="tela-inicio" class="tela fade-in">
       <div class="hero">
         <h1>Painel do Guardião da Biblioteca</h1>
@@ -43,6 +47,8 @@
       </div>
     </section>
 
+    <!-- Livros -->
+
     <section id="tela-livros" class="tela hidden">
       <div class="header-section">
         <h2>Acervo do Grimório</h2>
@@ -52,68 +58,175 @@
       </div>
     </section>
 
+    <section id="tela-cadastro-livro" class="tela hidden">
+      <h2>Inscrever Nova Obra no Grimório</h2>
+      <form id="form-livro" class="form-valinor">
+        <input type="hidden" id="id-edicao">
+        <input type="text" id="titulo" placeholder="Título da Obra" required>
+        <input type="text" id="autor" placeholder="Autor(a)" required>
+        <input type="number" id="ano" placeholder="Ano (Ex: 1954)" min="1000" max="2030" required>
+        <input type="text" id="genero" placeholder="Gênero (Fantasia, Sci-Fi...)" required>
+        <input type="text" id="imagem" placeholder="URL da Capa (Opcional)">
+
+        <div class="btn-container-form">
+          <button type="submit" class="btn-primary">Salvar no Acervo</button>
+        </div>
+
+      </form>
+    </section>
+
+    <!-- Usuário -->
+
     <section id="tela-usuarios" class="tela hidden">
       <div class="header-section">
         <h2>Guilda de Aventureiros</h2>
         <button class="btn-primary" data-target="tela-cadastro-usuario">+ Registrar Membro</button>
       </div>
-      <div id="lista-usuarios" class="grid-usuarios">
-      </div>
-    </section>
 
-    <section id="tela-emprestimos" class="tela hidden">
-      <div class="header-section">
-        <h2>Registro de Missões</h2>
-        <button class="btn-primary" data-target="tela-novo-emprestimo">+ Novo Empréstimo</button>
-      </div>
-      <div class="card tabela-container">
-        <table class="tabela-valinor">
-          <thead>
-            <tr>
-              <th>Obra</th>
-              <th>Aventureiro</th>
-              <th>Data</th>
-              <th>Status</th>
-              <th>Ação</th>
-            </tr>
-          </thead>
-          <tbody id="tabela-corpo-emprestimos">
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <div id="lista-usuarios-container">
+        <div class="tabela-container">
+          <table class="tabela-valinor">
+            <thead>
+              <tr>
+                <th width="1%">Aventureiro</th>
+                <th width="1%">Email</th>
+                <th width="1%">Contato</th>
+                <th width="1%">Nascimento</th>
+                <th width="1%">Endereço</th>
+                <th width="1%">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-corpo-usuarios">
+            </tbody>
+          </table>
 
-    <section id="tela-cadastro-livro" class="tela hidden">
-      <h2>Inscrever Nova Obra no Grimório</h2>
-      <form id="form-livro" class="form-valinor">
-        <input type="text" id="titulo" placeholder="Título da Obra" required>
-        <input type="text" id="autor" placeholder="Autor(a)" required>
-        <input type="text" id="genero" placeholder="Gênero (Fantasia, Sci-Fi...)">
-        <input type="text" id="imagem" placeholder="URL da Capa (Opcional)">
-        <input type="number" id="preco" placeholder="Valor (Moedas de Ouro)" step="0.01">
-        <button type="submit" class="btn-primary">Salvar no Acervo</button>
-      </form>
+          <p id="mensagem-vazia"
+            style="text-align:center; padding: 20px; display:none; color: black; font-size: 1.2 rem;">
+            Nenhum aventureiro registrado ainda.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section id="tela-cadastro-usuario" class="tela hidden">
       <h2>Registrar Novo Aventureiro</h2>
       <form id="form-usuario" class="form-valinor">
-        <input type="text" id="nome" placeholder="Nome do Aventureiro" required>
-        <input type="email" id="email" placeholder="Pergaminho de Contato (E-mail)" required>
-        <button type="submit" class="btn-primary">Registrar na Guilda</button>
+        <input type="hidden" id="id-edicao-usuario">
+
+        <div class="form-grid">
+          <div class="campo-grupo">
+            <label>Nome Completo</label>
+            <input type="text" id="nome" placeholder="Ex: Frodo Baggins" required>
+          </div>
+
+          <div class="campo-grupo">
+            <label>CPF (Somente números)</label>
+            <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" required>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Data de Nascimento</label>
+            <input type="date" id="nascimento" required>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Telefone / WhatsApp</label>
+            <input type="tel" id="telefone" placeholder="(XX) 9XXXX-XXXX" required>
+          </div>
+
+          <div class="campo-grupo">
+            <label>E-mail</label>
+            <input type="email" id="email" placeholder="contato@email.com" required>
+          </div>
+
+          <div class="campo-grupo">
+            <label>CEP</label>
+            <input type="text" id="cep" placeholder="00000-000" maxlength="9" required>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Número</label>
+            <input type="text" id="numero" placeholder="Nº" required>
+          </div>
+
+          <div class="campo-grupo ">
+            <label>Endereço (Rua)</label>
+            <input type="text" id="logradouro" placeholder="Buscando automaticamente..." readonly>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Bairro</label>
+            <input type="text" id="bairro" readonly>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Cidade</label>
+            <input type="text" id="localidade" readonly>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Estado (UF)</label>
+            <input type="text" id="uf" readonly>
+          </div>
+
+          <div class="btn-container-form">
+            <button type="submit" class="btn-primary">Registrar na Guilda</button>
+          </div>
       </form>
     </section>
 
+    <!-- Empréstimos -->
+
+    <section id="tela-emprestimos" class="tela hidden">
+      <div class="header-section">
+        <h2>Registro de Missões</h2>
+        <button class="btn-primary" data-target="tela-novo-emprestimo">+ Nova Missão</button>
+      </div>
+
+      <div id="lista-emprestimos">
+        <div class="tabela-container">
+          <table class="tabela-valinor">
+            <thead>
+              <tr>
+                <th>Livro (Grimório)</th>
+                <th>Aventureiro</th>
+                <th>Data Saída</th>
+                <th>Data Retorno</th>
+                <th>Status</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-corpo-emprestimos">
+            </tbody>
+          </table>
+          <p id="msg-emprestimos-vazio" style="text-align:center; padding: 20px; display:none;">
+            Nenhuma missão ativa no momento.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section id="tela-novo-emprestimo" class="tela hidden">
-      <h2>Iniciar Nova Missão (Empréstimo)</h2>
+      <h2>Iniciar Nova Missão</h2>
+
       <form id="form-emprestimo" class="form-valinor">
-        <label>Quem partirá na missão?</label>
-        <select id="select-usuario" required></select>
+        <div class="campo-grupo">
+          <label>Quem partirá na missão?</label>
+          <select id="select-usuario" required>
+            <option value="">Carregando aventureiros...</option>
+          </select>
+        </div>
 
-        <label>Qual conhecimento levará?</label>
-        <select id="select-livro" required></select>
+        <div class="campo-grupo">
+          <label>Qual conhecimento levará?</label>
+          <select id="select-livro" required>
+            <option value="">Carregando grimório...</option>
+          </select>
+        </div>
 
-        <button type="submit" class="btn-primary">Confirmar Empréstimo</button>
+        <div class="btn-container">
+          <button type="submit" class="btn-primary">Confirmar Empréstimo</button>
+        </div>
       </form>
     </section>
 
@@ -123,7 +236,12 @@
   <script src="app/main.js"></script>
   <script src="app/metodoCadastrarLivro.js"></script>
   <script src="app/metodoCadastrarUsuario.js"></script>
+  <script src="app/metodoGerenciarLivros.js"></script>
+  <script src="app/metodoGerenciarUsuarios.js"></script>
   <script src="app/metodoRegistrarEmprestimo.js"></script>
+  <script>
+    feather.replace()
+  </script>
 </body>
 
 </html>
