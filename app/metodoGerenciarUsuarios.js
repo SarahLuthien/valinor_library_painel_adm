@@ -26,29 +26,17 @@ function editarUsuario(id) {
   document.getElementById('email').value = usuario.email;
 
 
-  if (usuario.dadosEndereco) {
-    document.getElementById('cep').value = usuario.dadosEndereco.cep || '';
-    document.getElementById('logradouro').value = usuario.dadosEndereco.logradouro || '';
-    document.getElementById('numero').value = usuario.dadosEndereco.numero || '';
-    document.getElementById('bairro').value = usuario.dadosEndereco.bairro || '';
-    document.getElementById('localidade').value = usuario.dadosEndereco.cidade || '';
-    document.getElementById('uf').value = usuario.dadosEndereco.uf || '';
-  } else {
-
-    document.getElementById('cep').value = '';
-    document.getElementById('logradouro').value = '';
-    document.getElementById('numero').value = '';
-    document.getElementById('bairro').value = '';
-    document.getElementById('localidade').value = '';
-    document.getElementById('uf').value = '';
-  }
+  document.getElementById('cep').value = end.cep || '';
+  document.getElementById('logradouro').value = end.logradouro || '';
+  document.getElementById('numero').value = end.numero || '';
+  document.getElementById('bairro').value = end.bairro || '';
+  document.getElementById('localidade').value = end.cidade || '';
 
 
   document.getElementById('id-edicao-usuario').value = id;
-
-
   const btn = document.querySelector('#form-usuario button[type="submit"]');
   btn.textContent = "Atualizar Cadastro";
 
   document.querySelector('[data-target="tela-cadastro-usuario"]').click();
+  document.getElementById('nome').focus();
 }

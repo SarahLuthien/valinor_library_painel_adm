@@ -3,6 +3,24 @@ let dadosDoSistema = { usuarios: [], livros: [], emprestimos: [] };
 
 const botoesNav = document.querySelectorAll('.nav-link, [data-target]');
 const telas = document.querySelectorAll('.tela');
+const btnMobile = document.getElementById('btn-mobile');
+
+if (btnMobile) {
+  btnMobile.addEventListener('click', () => {
+    const nav = document.getElementById('nav');
+    nav.classList.toggle('active');
+  });
+}
+
+const linksMenu = document.querySelectorAll('.nav-link');
+linksMenu.forEach(link => {
+  link.addEventListener('click', () => {
+    const nav = document.getElementById('nav');
+    if (window.innerWidth < 600) {
+      nav.classList.remove('active');
+    }
+  });
+});
 
 botoesNav.forEach(botao => {
   botao.addEventListener('click', (e) => {

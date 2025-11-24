@@ -22,7 +22,12 @@
       <span class="logo-icon">✦</span>
       <span class="logo-text">Valinor <span>Library</span></span>
     </div>
-    <nav class="nav">
+
+    <button id="btn-mobile" aria-label="Abrir Menu">
+      <span class="hamburguer"></span>
+    </button>
+
+    <nav class="nav" id="nav">
       <button class="nav-link active" data-target="tela-inicio">Início</button>
       <button class="nav-link" data-target="tela-livros">Grimório (Livros)</button>
       <button class="nav-link" data-target="tela-usuarios">Aventureiros (Users)</button>
@@ -109,7 +114,7 @@
     </section>
 
     <section id="tela-cadastro-usuario" class="tela hidden">
-      <h2>Registrar Novo Aventureiro</h2>
+      <h2>Registrar Novo Aventureiro (Usuário)</h2>
       <form id="form-usuario" class="form-valinor">
         <input type="hidden" id="id-edicao-usuario">
 
@@ -229,8 +234,13 @@
         </div>
       </form>
     </section>
-
   </main>
+  <footer class="rodape">
+    <div class="container">
+      <p>&copy; 2025 <strong>Valinor Library</strong></p>
+      <p class="dev-info">Desenvolvido com magia e código por <span>Sara Pires</span></p>
+    </div>
+  </footer>
 
   <script src="app/api.js"></script>
   <script src="app/main.js"></script>
@@ -242,6 +252,7 @@
   <script>
     feather.replace()
   </script>
+
 </body>
 
 </html>
