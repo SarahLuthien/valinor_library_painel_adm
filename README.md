@@ -1,5 +1,5 @@
 # 🌟 Valinor Library – Painel do Guardião  
-Um sistema administrativo completo para gerenciamento de **Livros**, **Aventureiros (Usuários)** e **Missões (Empréstimos)** no universo temático de Épico.
+Um sistema administrativo completo para gerenciamento de **Livros**, **Aventureiros (Usuários)** e **Missões (Empréstimos)** no universo temático Épico.
 
 Construído em **HTML, CSS e JavaScript Vanilla**, com persistência remota via **JSONBin API**.
 
