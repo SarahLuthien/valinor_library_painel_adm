@@ -1,6 +1,20 @@
 let dadosDoSistema = { usuarios: [], livros: [], emprestimos: [] };
 
 
+function gerarIdUnico(prefix = "id_") {
+  let id;
+  do {
+    id = prefix + Date.now() + "_" + Math.floor(Math.random() * 100000);
+  } while (
+    dadosDoSistema.usuarios.some(u => u.id === id) ||
+    dadosDoSistema.livros.some(l => l.id === id) ||
+    dadosDoSistema.emprestimos.some(e => e.id === id)
+  );
+
+  return id;
+}
+
+
 const botoesNav = document.querySelectorAll('.nav-link, [data-target]');
 const telas = document.querySelectorAll('.tela');
 const btnMobile = document.getElementById('btn-mobile');

@@ -28,7 +28,7 @@ formLivro.addEventListener('submit', async (e) => {
     // Modo Novo Cadastro
 
     const novoLivro = {
-      id: "livro_" + Date.now(),
+      id: gerarIdUnico("livro_"),
       titulo,
       autor,
       ano,

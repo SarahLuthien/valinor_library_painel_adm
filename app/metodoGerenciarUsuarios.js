@@ -26,6 +26,8 @@ function editarUsuario(id) {
   document.getElementById('email').value = usuario.email;
 
 
+  const end = usuario.dadosEndereco || {};
+
   document.getElementById('cep').value = end.cep || '';
   document.getElementById('logradouro').value = end.logradouro || '';
   document.getElementById('numero').value = end.numero || '';

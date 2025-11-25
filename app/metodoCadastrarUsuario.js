@@ -78,15 +78,32 @@ formUsuario.addEventListener('submit', async (e) => {
   if (telefone.replace(/\D/g, '').length < 10) { alert("Telefone incompleto."); return; }
   if (!dadosEndereco.logradouro || !dadosEndereco.numero) { alert("Endereço incompleto."); return; }
 
+  const cpfLimpo = cpf.replace(/\D/g, '');
+
+  const cpfJaExiste = dadosDoSistema.usuarios.some(u => {
+    const cpfUsuarioLimpo = (u.cpf || '').replace(/\D/g, '');
+    if (idEdicao && u.id == idEdicao) return false;
+    return cpfUsuarioLimpo === cpfLimpo;
+  });
+
+  if (cpfJaExiste) {
+    alert("⚠️ Este CPF já pertence a outro aventureiro!");
+    return;
+  }
+
 
   if (idEdicao) {
     // Modo Edição
     const index = dadosDoSistema.usuarios.findIndex(u => u.id == idEdicao);
     if (index !== -1) {
-
       dadosDoSistema.usuarios[index] = {
         ...dadosDoSistema.usuarios[index],
-        nome, cpf, nascimento, telefone, email, dadosEndereco
+        nome,
+        cpf,
+        nascimento,
+        telefone,
+        email,
+        dadosEndereco
       };
     }
 
@@ -96,7 +113,7 @@ formUsuario.addEventListener('submit', async (e) => {
     // Modo Novo Cadastro
 
     const novoUsuario = {
-      id: "user_" + Date.now(),
+      id: gerarIdUnico("user_"),
       nome,
       cpf,
       nascimento,
