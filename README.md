@@ -11,28 +11,6 @@ Construído em **HTML, CSS e JavaScript Vanilla**, com persistência remota via 
 
 ---
 
-## 🖼️ Demonstração (Prints)
-
-### **🏠 Tela Inicial**
-_(adicione aqui o print da Home)_
-
-### **📚 Tela do Acervo (Livros)**
-_(adicione aqui o print dos cards de livros)_
-
-### **🧝 Tela de Aventureiros (Usuários)**
-_(adicione aqui o print da tabela de usuários)_
-
-### **⚔️ Tela de Missões (Empréstimos)**
-_(adicione aqui o print da tabela de empréstimos)_
-
-### **📝 Cadastro de Livro**
-_(adicione aqui o print do formulário de livros)_
-
-### **📝 Cadastro de Usuário**
-_(adicione aqui o print do formulário com CEP automático)_
-
----
-
 ## 📚 Funcionalidades
 
 ### **📘 Livros (Grimório)**
